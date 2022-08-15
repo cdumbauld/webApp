@@ -1,0 +1,43 @@
+extends layout 
+
+block layout-content 
+
+    div.banner 
+
+        div.Header
+            link(rel='stylesheet', href='/stylesheets/design.css', type='text/css')
+             <h1> Cole's Corner </h1> 
+                <ul>
+                    <li> <a href = "cole"> Home Page </a></li>
+                    <li> <a href = "myProgram"> My Program </a> </li>
+                    <li> <a href = "blog"> Blog </a> </li>
+                </ul>
+        
+        div.body
+            .row.m-4
+                p.text Have any questions, comments, or rants that you need to get off your chest? Please leave a comment in our blog section! 
+
+            .row.m-2
+                 .col
+                    h6.text Name: 
+                        <input type = "text" name = "txtName" size = 20 />      
+        
+        div.textArea
+            .row.m-2 
+                .colspan-10
+                    <textarea name = "comments" rows = 8 cols = 60 value = ""> </textarea>
+    
+
+    style.
+       
+
+        .body{
+            text-align: center;
+            color: #fff;
+        }
+
+        .textArea{
+            width: 1550px;
+            height: 150px;
+            text-align: center;
+        }

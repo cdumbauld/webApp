@@ -1,0 +1,20 @@
+.routine{
+    color: #fff;
+
+}
+
+.routine h3{
+    color:rgb(20, 227, 227);
+}
+
+.routine img{
+    height: 150px;
+    width: 200px;
+}
+.static{
+    position: absolute;
+    background: white;
+}
+.static:hover{
+    opacity: 0;
+}

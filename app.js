@@ -39,7 +39,10 @@ httpServer.listen(8080);
 const
   indexRouter = require('./routes/index'),
   mainRouter = require('./routes/mainpage'),
-  userRouter = require('./routes/user')
+  userRouter = require('./routes/user'),
+  coleRouter = require('./routes/cole'),
+  blogRouter = require('./routes/blog'),
+  myProgramRouter = require('./routes/myProgram')
   ;
 
 // view engine setup
@@ -63,6 +66,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/main', mainRouter);
 app.use('/user', userRouter);
+app.use('/cole', coleRouter);
+app.use('/blog', blogRouter);
+app.use('/myProgram', myProgramRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

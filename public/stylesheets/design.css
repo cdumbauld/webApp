@@ -1,0 +1,46 @@
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(/images/gym.jpg);
+    background-size: cover;
+    background-position: center;
+      
+}  
+
+.Header{
+    width: 100%;
+    margin: auto;
+    padding: 35px 0;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center; 
+}
+.Header h1{
+    color: rgb(20, 227, 227);
+}
+.Header ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.Header ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.Header ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: rgb(20, 227, 227);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.Header ul li:hover::after{
+    width: 100%;
+}
