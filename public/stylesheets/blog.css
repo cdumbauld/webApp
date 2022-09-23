@@ -1,0 +1,36 @@
+.body{
+    text-align:center;
+    padding: 30px;
+}
+.par{
+    color:#fff;
+}
+
+.name{
+    color:#fff;
+}
+
+.blogButtons{
+    padding:10px;
+}
+
+.postName{
+    color:rgb(20, 227, 227);
+}
+
+.blogPost{
+    border-style:solid;
+    border-color: rgb(72, 71, 71);
+    color:#fff;
+}
+
+.blogPostInner{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(310px,1fr));
+    position: relative;
+    justify-content: center;
+    max-width: 1200px;
+    margin:0 auto;
+    text-align: center;
+}
+

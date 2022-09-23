@@ -1,56 +1,160 @@
 extends layout 
 
 block layout-content
-    div.banner
-         
-     div.Header
-        link(rel='stylesheet', href='/stylesheets/design.css', type='text/css')
-        link(rel='stylesheet', href='/stylesheets/myProgram.css', type='text/css')
-        <h1> My Program </h1>
+    //- div.banner
+        
+            
+    div.Header
+    
+        <nav class=Header-inner>
+            
+            div.logo-left
+                <span class ="logo"> Cole's Fitness Center </span>
+            div
+                div.nav
+                    <ul class="navLinks">
+                        
+                        <li><a href = "cole"> Home Page </a></li>
+                        <li><a href = "myProgram"> My Program </a></li>
+                        <li><a href = "blog"> Blog </a></li>
+                        
+                    </ul>
+                    div.button 
+                        <button> Contact </button>
+            
+        </nav>
 
-            <ul>
-                <li><a href = "cole"> Home Page </a></li>
-                <li><a href = "myProgram"> My Program </a></li>
-                <li><a href = "blog"> Blog </a></li>
-            </ul>
-                //- ex: <a href = "myProgram"> how to go to the next page 
-        div.routine 
-            .container  
-                .row.center     
-                    .col
-                        <h3> Push </h3>
-                        p Bench Press 3x8
-                        <img class="static" src="/images/BenchPressimg.jpg"> <img class="active" src="/images/BenchPress.gif">
-                        p Incline Bench Press 3x8
-                        p Shoulder Press 3x8
-                        p Lateral Raises 3x8
-                        p Flys(Machine or Bench) 3x8
-                        p Tricep Pull Downs 3x8
-                        p Dips 3x Max
-                        p Skull Crusher 3x8
-                    .col
-                        <h3> Pull </h3>
-                        p Deadlift 3x8 
-                        p Pull Ups 3x Max 
-                        p Dumbbell Bicep Curls 3x8
-                        p Hammer Curls 3x8
-                        p Incline Bench Curls 3x8
-                        p Barbell Curls 3x8
-                        p Wide grip Lat Pull Downs 3x8
-                        p Close Grip Lat Pull Downs 3x8
-                        p Rows 3x8
-                        p Shrugs 3x8
-                        p Lat Pull Overs 3x8
-                    .col
-                        <h3> Legs </h3> 
-                        p Back Squats 3x10-15
-                        p Front Sqauts 3x10-15
-                        p Leg Press 3x10
-                        p Hamstring Curls 3x10-15
-                        p Quad Extenstions 3x10-15
-                        p Dumbbell Lounges 3x10-15
-                        p Calf Raises 3x20
-                        p Bulgarian Split Squats 3x8
+
+    
+    div.routine 
+        div.routine-inner
+                
+            div.push
+                <h3> Push </h3>
+                p Bench Press 3x8
+                <img class="static" src="/images/BenchPressimg.jpg"> <img class="active" src="/images/BenchPress.gif">
+                p Incline Bench Press 3x8
+                <img class="static" src="/images/InclineBenchimg.jpg"> <img class="active" src="/images/InclineBench.gif">
+                p Shoulder Press 3x8
+                <img class="static" src="/images/ShoulderPressIMG.jpg"> <img class="active" src="/images/ShoulderPress.gif">
+                p Lateral Raises 3x8
+                <img class="static" src="/images/LaterRaisesIMG.jpg"> <img class="active" src="/images/LateralRaises.gif">
+                p Flys(Machine or Bench) 3x8
+                <img class="static" src="/images/flyIMG.jpg"> <img class="active" src="/images/fly.gif">
+                p Tricep Pull Downs 3x8
+                <img class="static" src="/images/tricepPullDownIMG.jpg"> <img class="active" src="/images/tricepPullDown.gif">
+                p Dips 3x Max
+                <img class="static" src="/images/dipsIMG.jpg"> <img class="active" src="/images/dips.gif">
+                p Skull Crusher 3x8
+                <img class="static" src="/images/skullCrushersIMG.jpg"> <img class="active" src="/images/skullCrushers.gif">
+                    
+            div.pull
+                <h3> Pull </h3>
+                p Deadlift 3x8 
+                p Pull Ups 3x Max 
+                p Dumbbell Bicep Curls 3x8
+                p Hammer Curls 3x8
+                p Incline Bench Curls 3x8
+                p Barbell Curls 3x8
+                p Wide grip Lat Pull Downs 3x8
+                p Close Grip Lat Pull Downs 3x8
+                p Rows 3x8
+                p Shrugs 3x8
+                p Lat Pull Overs 3x8
+                    
+            div.legs
+                <h3> Legs </h3> 
+                p Back Squats 3x10-15
+                p Front Sqauts 3x10-15
+                p Leg Press 3x10
+                p Hamstring Curls 3x10-15
+                p Quad Extenstions 3x10-15
+                p Dumbbell Lounges 3x10-15
+                p Calf Raises 3x20
+                p Bulgarian Split Squats 3x8
+
+    div.footer
+        
+
+
+    link(rel='stylesheet', href='/stylesheets/design.css', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/myProgram.css', type='text/css')
+
+        
+
+
+    
+
+
+//- extends layout 
+
+
+//- block layout-content
+//-     div.banner
+//-         link(rel='stylesheet', href='/stylesheets/design.css', type='text/css')
+//-         link(rel='stylesheet', href='/stylesheets/myProgram.css', type='text/css')
+            
+//-         div.Header
+//-             .row
+//-                 .col
+//-                     <h2 class ="logo"> Cole's Fitness Center </h2>
+//-                 .col
+//-                     <nav>
+//-                         <ul class="navLinks">
+//-                             <li><a href = "cole"> Home Page </a></li>
+//-                             <li><a href = "myProgram"> My Program </a></li>
+//-                             <li><a href = "blog"> Blog </a></li>
+//-                         </ul>
+//-                     </nav>
+//-                 .col
+//-                     <button> Contact </button>
+//-                     div.routine 
+//-                         .container 
+//-                             .row.center     
+//-                                 .col
+//-                                     div.push
+//-                                         <h3> Push </h3>
+//-                                         p Bench Press 3x8
+//-                                         <img class="static" src="/images/BenchPressimg.jpg"> <img class="active" src="/images/BenchPress.gif">
+//-                                         p Incline Bench Press 3x8
+//-                                         <img class="static" src="/images/InclineBenchimg.jpg"> <img class="active" src="/images/InclineBench.gif">
+//-                                         p Shoulder Press 3x8
+//-                                         <img class="static" src="/images/ShoulderPressIMG.jpg"> <img class="active" src="/images/ShoulderPress.gif">
+//-                                         p Lateral Raises 3x8
+//-                                         <img class="static" src="/images/LaterRaisesIMG.jpg"> <img class="active" src="/images/LateralRaises.gif">
+//-                                         p Flys(Machine or Bench) 3x8
+//-                                         <img class="static" src="/images/flyIMG.jpg"> <img class="active" src="/images/fly.gif">
+//-                                         p Tricep Pull Downs 3x8
+//-                                         <img class="static" src="/images/tricepPullDownIMG.jpg"> <img class="active" src="/images/tricepPullDown.gif">
+//-                                         p Dips 3x Max
+//-                                         <img class="static" src="/images/dipsIMG.jpg"> <img class="active" src="/images/dips.gif">
+//-                                         p Skull Crusher 3x8
+//-                                         <img class="static" src="/images/skullCrushersIMG.jpg"> <img class="active" src="/images/skullCrushers.gif">
+//-                                 .col
+//-                                     div.pull
+//-                                         <h3> Pull </h3>
+//-                                         p Deadlift 3x8 
+//-                                         p Pull Ups 3x Max 
+//-                                         p Dumbbell Bicep Curls 3x8
+//-                                         p Hammer Curls 3x8
+//-                                         p Incline Bench Curls 3x8
+//-                                         p Barbell Curls 3x8
+//-                                         p Wide grip Lat Pull Downs 3x8
+//-                                         p Close Grip Lat Pull Downs 3x8
+//-                                         p Rows 3x8
+//-                                         p Shrugs 3x8
+//-                                         p Lat Pull Overs 3x8
+//-                                 .col
+//-                                     div.legs
+//-                                         <h3> Legs </h3> 
+//-                                         p Back Squats 3x10-15
+//-                                         p Front Sqauts 3x10-15
+//-                                         p Leg Press 3x10
+//-                                         p Hamstring Curls 3x10-15
+//-                                         p Quad Extenstions 3x10-15
+//-                                         p Dumbbell Lounges 3x10-15
+//-                                         p Calf Raises 3x20
+//-                                         p Bulgarian Split Squats 3x8
 
 
 

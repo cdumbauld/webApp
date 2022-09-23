@@ -2,42 +2,51 @@ extends layout
 
 block layout-content 
 
-    div.banner 
-
-        div.Header
-            link(rel='stylesheet', href='/stylesheets/design.css', type='text/css')
-             <h1> Cole's Corner </h1> 
-                <ul>
-                    <li> <a href = "cole"> Home Page </a></li>
-                    <li> <a href = "myProgram"> My Program </a> </li>
-                    <li> <a href = "blog"> Blog </a> </li>
-                </ul>
+    div.Header
+    
+        <nav class=Header-inner>
+            
+            div.logo-left
+                <span class ="logo"> Cole's Fitness Center </span>
+            div
+                div.nav
+                    <ul class="navLinks">
+                        
+                        <li><a href = "cole"> Home Page </a></li>
+                        <li><a href = "myProgram"> My Program </a></li>
+                        <li><a href = "blog"> Blog </a></li>
+                        
+                    </ul>
+                    div.button 
+                        <button> Contact </button>
+            
+        </nav>
         
-        div.body
-            .row.m-4
-                p.text Have any questions, comments, or rants that you need to get off your chest? Please leave a comment in our blog section! 
-
-            .row.m-2
-                 .col
-                    h6.text Name: 
-                        <input type = "text" name = "txtName" size = 20 />      
+    div.body
+            
+        p.par Have any questions, comments, or rants that you need to get off your chest? Please leave a comment in our blog section! 
+            p.name Name: 
+                <input type = "text" name = "txtName" size = 20 >      
         
         div.textArea
-            .row.m-2 
-                .colspan-10
-                    <textarea name = "comments" rows = 8 cols = 60 value = ""> </textarea>
+            <textarea name = "comments" rows = 8 cols = 60 value = ""> </textarea>
+        
+        div.blogButtons
+            <button class="btnPost"> Post </button>
+            <button class="btnClear"> Clear </button>
+        
+
+        div.blogPost
+            div.blogPostInner
+                div.postName
+                    p Cole
+                div.post
+                    p Hello my name is Cole and welcome to my fitness page! On my page you can find my workout and my blog section to post your goals or questions
+                 
+
+
+
+
+    link(rel='stylesheet', href='/stylesheets/design.css', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/blog.css' , type = 'text/css')
     
-
-    style.
-       
-
-        .body{
-            text-align: center;
-            color: #fff;
-        }
-
-        .textArea{
-            width: 1550px;
-            height: 150px;
-            text-align: center;
-        }

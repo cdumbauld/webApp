@@ -1,8 +1,20 @@
 .routine{
     color: #fff;
-
+    /* background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(/images/gym.jpg); */
+    justify-content: space-between;
+    align-items: center;
+    margin-top:60px;
 }
 
+.routine-inner{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(310px,1fr));
+    position: relative;
+    justify-content: center;
+    max-width: 1200px;
+    margin:0 auto;
+    text-align: center;
+}
 .routine h3{
     color:rgb(20, 227, 227);
 }
@@ -17,4 +29,11 @@
 }
 .static:hover{
     opacity: 0;
+}
+.push{
+    
+}
+
+.footer{
+    padding:50px;
 }

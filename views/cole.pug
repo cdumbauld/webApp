@@ -1,20 +1,28 @@
 extends layout
 
 block layout-content
-    div.banner
          
-        div.Header
-            link(rel='stylesheet', href='/stylesheets/design.css', type='text/css')
-            <h1> Cole's Fitness Page </h1>
-
-                <ul>
-                    <li><a href = "cole"> Home Page </a></li>
-                    <li><a href = "myProgram" > My Program </a> </li>
-                    <li><a href = "blog"> Blog </a></li>
-                </ul>
-                //- ex: <a href = "myProgram.pug"> how to go to the next page 
+    div.Header
     
-                
+        <nav class=Header-inner>
+            
+            div.logo-left
+                <span class ="logo"> Cole's Fitness Center </span>
+            div
+                div.nav
+                    <ul class="navLinks">
+                        
+                        <li><a href = "cole"> Home Page </a></li>
+                        <li><a href = "myProgram"> My Program </a></li>
+                        <li><a href = "blog"> Blog </a></li>
+                        
+                    </ul>
+                    div.button 
+                        <button> Contact </button>
+            
+        </nav> 
+    
+    link(rel='stylesheet', href='/stylesheets/design.css', type='text/css')           
      
     
    
