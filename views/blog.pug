@@ -7,7 +7,7 @@ block layout-content
         <nav class=Header-inner>
             
             div.logo-left
-                <span class ="logo"> Cole's Fitness Center </span>
+                <h4 class ="logo"> Cole's Fitness Center </h4>
             div
                 div.nav
                     <ul class="navLinks">
@@ -18,35 +18,34 @@ block layout-content
                         
                     </ul>
                     div.button 
-                        <button> Contact </button>
+                        <button><span></span> Contact </button>
             
         </nav>
-        
-    div.body
+    div.blog-wrapper  
+        div.body
+            h3 Cole's Corner  
+            p.par Have any questions, comments, or rants that you need to get off your chest? Please leave a comment in our blog section! 
+                p.name Name: 
+                    <input type = "text" name = "txtName" size = 20 >      
             
-        p.par Have any questions, comments, or rants that you need to get off your chest? Please leave a comment in our blog section! 
-            p.name Name: 
-                <input type = "text" name = "txtName" size = 20 >      
-        
-        div.textArea
-            <textarea name = "comments" rows = 8 cols = 60 value = ""> </textarea>
-        
-        div.blogButtons
-            <button class="btnPost"> Post </button>
-            <button class="btnClear"> Clear </button>
-        
-
-        div.blogPost
-            div.blogPostInner
-                div.postName
-                    p Cole
-                div.post
-                    p Hello my name is Cole and welcome to my fitness page! On my page you can find my workout and my blog section to post your goals or questions
-                 
+            div.textArea
+                <textarea name = "comments" rows = 8 cols = 60> </textarea>
+            
+            div.blogButtons
+                <button class="btnPost"><span></span> Post </button>
+                <button class="btnClear"><span></span> Clear </button>
+            
+            div.blog-container
+                div.blogPost 
+                    div.postName
+                        p Cole
+                    div.post
+                        p Hello
+                        
 
 
 
 
     link(rel='stylesheet', href='/stylesheets/design.css', type='text/css')
     link(rel='stylesheet', href='/stylesheets/blog.css' , type = 'text/css')
-    
+    script(src="/javascripts/blog.js")

@@ -3,9 +3,14 @@
     /* background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(/images/gym.jpg); */
     justify-content: space-between;
     align-items: center;
-    margin-top:60px;
+    margin-top:40px;
 }
 
+h1{
+    text-align: center;
+    padding-bottom: 30px;
+    
+}
 .routine-inner{
     display:grid;
     grid-template-columns: repeat(auto-fill,minmax(310px,1fr));
@@ -17,6 +22,7 @@
 }
 .routine h3{
     color:rgb(20, 227, 227);
+    font-family:auto;
 }
 
 .routine img{

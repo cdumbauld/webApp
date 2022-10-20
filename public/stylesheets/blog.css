@@ -1,6 +1,11 @@
+.blog-wrapper{
+    display:flex;
+    margin:1rem auto;
+    max-width:1084px;
+}
 .body{
     text-align:center;
-    padding: 30px;
+    
 }
 .par{
     color:#fff;
@@ -8,6 +13,7 @@
 
 .name{
     color:#fff;
+    padding:10px;
 }
 
 .blogButtons{
@@ -16,21 +22,34 @@
 
 .postName{
     color:rgb(20, 227, 227);
+    text-align: left;
 }
 
-.blogPost{
+p{
+    margin-bottom:0;
+}
+
+.blog-container{
     border-style:solid;
     border-color: rgb(72, 71, 71);
+    padding: 1rem;
+}
+.blogPost{
     color:#fff;
 }
 
 .blogPostInner{
-    display:grid;
+    /* display:grid;
     grid-template-columns: repeat(auto-fill,minmax(310px,1fr));
     position: relative;
     justify-content: center;
     max-width: 1200px;
     margin:0 auto;
-    text-align: center;
+    text-align: center;*/
+}
+
+.post{
+    margin-left: 0.5rem;
+    text-align: left;
 }
 
