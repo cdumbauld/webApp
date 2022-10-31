@@ -3,9 +3,13 @@
     margin:1rem auto;
     max-width:1084px;
 }
+
+h3{
+    color:rgb(20, 227, 227);
+    font-family:sans-serif;
+}
 .body{
-    text-align:center;
-    
+    text-align:center; 
 }
 .par{
     color:#fff;
@@ -13,9 +17,83 @@
 
 .name{
     color:#fff;
-    padding:10px;
+    padding:10px 0px;
+    position: relative;
+    float:left;
 }
 
+.name input{
+    width:300px;
+    padding:10px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background:transparent;
+    border-radius:5px;
+    outline:none;
+    color:#fff;
+    font-size:1em;
+    transition:0.5s;
+}
+
+.name input:hover{
+    cursor:pointer;
+}
+
+.name input:focus{
+    cursor:text;
+}
+.name span{
+    position: absolute;
+    left: 0px;
+    padding:10px 10px;
+    pointer-events: none;
+    font-size:1em;
+    /* color: rgba(255,255,255,0.25); */
+    color:grey;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.name input:valid ~ span,
+.name input:focus ~span{
+    color:#323636;
+    transform: translate(10px,-7px);
+    font-size:0.75em;
+    padding: 0px 10px;
+    background:rgb(20, 227, 227);
+    /* border-left:1px solid #00dfc4; */
+    /* border-right:1px solid #00dfc4; */
+    letter-spacing:.2em;
+    border-radius:5px;
+}
+
+.name input:valid,
+.name input:focus{
+    border:1px solid rgb(20, 227, 227);
+}
+
+.txtArea{
+    background-color: transparent;
+    color:#fff;
+    padding:1em;
+    border-radius: 10px;
+    border: 2px solid rgb(72, 71, 71);
+    outline:none;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    width:650px;
+    height:300px;
+    transition: all 0.7s;
+}
+
+.txtArea:hover{
+    cursor:pointer;
+}
+
+.txtArea:focus{
+    cursor:text;
+    border-color:rgb(20, 227, 227);
+}
 .blogButtons{
     padding:10px;
 }
@@ -33,6 +111,8 @@ p{
     border-style:solid;
     border-color: rgb(72, 71, 71);
     padding: 1rem;
+    border-radius:10px;
+    width: 650px;
 }
 .blogPost{
     color:#fff;
@@ -51,5 +131,9 @@ p{
 .post{
     margin-left: 0.5rem;
     text-align: left;
+}
+
+.footer{
+    padding:20px;
 }
 
