@@ -27,8 +27,9 @@ h1{
 }
 
 p{
-    margin-top:10px;
-    margin-bottom:0;
+    margin: 10px 92.24px 0 92.24px;
+    width: 200px;
+    text-align: left;
 }
 .routine img{
     height: 150px;
@@ -41,9 +42,7 @@ p{
 .static:hover{
     opacity: 0;
 }
-.push{
-    
-}
+
 
 .footer{
     padding:20px;

@@ -23,7 +23,7 @@ function onPostClicked(){
     if(name == "")
     {
         errorFlag = true;
-        errorMsg = "Please type in your name! ";
+        errorMsg = "errorName";
     }else
     {
         //loops through name to make sure its not just spaces
@@ -32,11 +32,12 @@ function onPostClicked(){
             if(name[i] == " ")
             {
                 errorFlag = true;
-                errorMsg = "Please type in your name! "; 
+                errorMsg = "errorName"; 
             //breaks out when character is found
             }else                                           
             {
                 errorFlag = false;
+                document.getElementById("errorName").style.visibility = "hidden";
                 break;          
             }
         }
@@ -46,7 +47,7 @@ function onPostClicked(){
             if(post == "")                                      
             {
                 errorFlag = true;
-                errorMsg = "Please type your post! ";
+                errorMsg = "errorPost";
             }else
             {
                 //loops through the post making sure its not just spaces
@@ -55,10 +56,11 @@ function onPostClicked(){
                     if(post[i] == " ")
                     {
                         errorFlag = true;
-                        errorMsg = "Please type your post! ";
+                        errorMsg = "errorPost";
                     }else
                     {
                         errorFlag = false;
+                        document.getElementById("errorPost").style.visibility = "hidden";
                         break;
                     }
 
@@ -71,7 +73,7 @@ function onPostClicked(){
     // post error message if there is no name or post
     if(errorFlag == true)
     {
-        alert(errorMsg);
+        document.getElementById(errorMsg).style.visibility = "visible";
     }else //posts the post on the blog page
     {
         $(".blog-container").prepend(
@@ -86,6 +88,7 @@ function onPostClicked(){
         );
         document.getElementsByName('txtName')[0].value = "";
         document.getElementsByName('comments')[0].value = "";
+        document.getElementById(errorMsg).style.visibility = "hidden";
     }
     
 }
@@ -94,6 +97,8 @@ function onClearClicked(){
     //clears textbox and textarea
     document.getElementsByName('txtName')[0].value = "";
     document.getElementsByName('comments')[0].value = "";
+    document.getElementById("errorName").style.visibility = "hidden";
+    document.getElementById("errorPost").style.visibility = "hidden";
 }
 
 /**
