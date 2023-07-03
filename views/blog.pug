@@ -26,14 +26,13 @@ block layout-content
             h3 Cole's Corner  
             p.par Have any questions, comments, or rants that you need to get off your chest?<br> Please leave a comment in our blog section! 
                 div.name 
-                    <input type = "text" name = "txtName" size = 20 required ="required">
+                    <input type = "text" name = "blogName" size = 20 required ="required">
                     <span class = "inputName">Name</span>
-                    <span class = "errorMsg" id = "errorName">Please enter in your name!</span>
-                    <span class = "errorMsg" id = "errorPost">Please type in your message!</span>
-                          
+                    <span class = "errorMsg" id = "formError"></span>
+                    
             
             div.textArea
-                <textarea class = "txtArea" name = "comments" placeholder = "Enter message here..."></textarea>
+                <textarea class = "txtAreaBlog" name = "blogPost" placeholder = "Enter message here..."></textarea>
             
             div.blogButtons
                 <button class="btnPost"><span class = "buttonSpan"></span> Post </button>

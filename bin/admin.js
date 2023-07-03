@@ -108,5 +108,83 @@ module.exports = class Admin extends Utils{
                 return callback(self.simpleSuccess('Registration request complete',options));
             });    
         });
+
     }
+
+
+    store_user_blog_post(postData,callback){
+        let self=this;
+        if (typeof callback!='function') callback = function(){};
+
+        // -----> Give me the list of blog posts
+        fs.readFile('blogPosts.json', function (error, content) {
+            if(error){
+                // console.log(error);
+                return callback(self.simpleFail('Error reading blog post',postData));
+            }
+            let blog_posts_data = JSON.parse(content);
+            console.log(blog_posts_data);
+            
+            //find max id of blog list data
+            let maxId = 0;
+            for(let posts in blog_posts_data){
+                let post= blog_posts_data[posts]
+                console.log(posts);
+                console.log("posts");
+
+                if(posts > maxId){
+                    maxId = posts;
+                }
+
+                for(let postInfo in post){
+                    console.log(postInfo)
+                    console.log("postInfo");
+                    console.log(post[postInfo])
+                    console.log("post value");
+                }
+                
+            }
+            console.log(maxId);
+            console.log("maxID");
+            // giving post a correct id
+            postData.id = parseInt(maxId) +1;
+            blog_posts_data[parseInt(maxId)+1] = postData;
+            console.log(blog_posts_data);
+            console.log("blog posts");
+
+            
+
+            //-----> Register them peeps
+            console.log("made it to admin.js");
+            var jsonContent = JSON.stringify(blog_posts_data);
+            fs.writeFile('blogPosts.json', jsonContent, 'utf8', function (err) {
+                if (err) {
+                    console.log(err); 
+                    return callback(self.simpleFail('Error storing blog posts'));
+                }
+                console.log("wahhhooooo")
+                return callback(self.simpleSuccess('Successfully stored blog posts',postData));
+            });    
+        });
+
+    };
+
+    load_users_blog_posts(callback){
+        let self=this;
+        console.log("made it to load_users_blog_posts")
+        if (typeof callback!='function') callback = function(){};
+
+         // -----> Give me the list of blog posts
+         fs.readFile('blogPosts.json', function (error, content) {
+            if(error){
+                // console.log(error);
+                return callback(self.simpleFail('Error reading blog posts',postData));
+            }
+            let blog_posts_data = JSON.parse(content);
+            console.log(blog_posts_data);
+           return callback(self.simpleSuccess("Successfully got blog posts",blog_posts_data)); 
+           
+        });
+
+    };
 }

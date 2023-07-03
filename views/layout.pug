@@ -33,3 +33,26 @@ html
     script(src="/javascripts/izitoast.js" type="text/javascript")
     script.
       moment.tz.add(['America/New_York|EST EDT|50 40|0101|1Lz50 1zb0 Op0']);
+
+    div.modalContainer
+
+        <div class = "popup" id="popup">
+
+          div.contactHeader
+              <h3> Contact Me!</h3> 
+          div.textBoxs 
+              <input type = "text" id = "contactName" name ="contactName" placeholder = "Name" required = "required"> 
+              <input type = "text" name ="contactEmail" id = "email" placeholder = "Email" required = "required">
+
+          div.textareaContainer 
+              <textarea class = "txtAreaEmail" name = "emailMessage" placeholder = "Enter message here..."></textarea>
+          
+          div.blogButtons
+              <button class="btnSend"><span class = "buttonSpan"></span> Send </button>
+              <button class="btnCancel"><span class = "buttonSpan"></span> Cancel </button>
+        </div>
+
+
+
+  link(rel='stylesheet', href='/stylesheets/design.css', type='text/css') 
+  script(src="/javascripts/blog.js")

@@ -126,9 +126,16 @@ function initUserConnection(socket){
 				socket.emit('tested socketio',response);
 			});
         })
-        .on('get user information',function(data){
-			admin.get_user_information(data,response =>{
-				socket.emit('got user information',response);
+        .on('store blog post',function(data){
+			console.log("made it to app.js");
+			admin.store_user_blog_post(data,response =>{
+				socket.emit('blog post stored',response);
+			});
+		})
+		.on('load blog posts',function(data){
+			console.log("made it to app.js");
+			admin.load_users_blog_posts(response =>{
+				socket.emit('blog posts loaded',response);
 			});
 		})
 		.on('register user',function(data){
