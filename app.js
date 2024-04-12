@@ -40,7 +40,7 @@ const
   indexRouter = require('./routes/index'),
   mainRouter = require('./routes/mainpage'),
   userRouter = require('./routes/user'),
-  coleRouter = require('./routes/cole'),
+  homeRouter = require('./routes/home'),
   blogRouter = require('./routes/blog'),
   myProgramRouter = require('./routes/myProgram')
   ;
@@ -66,7 +66,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/main', mainRouter);
 app.use('/user', userRouter);
-app.use('/cole', coleRouter);
+app.use('/home', homeRouter);
 app.use('/blog', blogRouter);
 app.use('/myProgram', myProgramRouter);
 
