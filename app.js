@@ -41,6 +41,7 @@ const
   mainRouter = require('./routes/mainpage'),
   userRouter = require('./routes/user'),
   coleRouter = require('./routes/cole'),
+  homeRouter = require('./routes/home'),
   blogRouter = require('./routes/blog'),
   myProgramRouter = require('./routes/myProgram')
   ;
@@ -67,6 +68,7 @@ app.use('/', indexRouter);
 app.use('/main', mainRouter);
 app.use('/user', userRouter);
 app.use('/cole', coleRouter);
+app.use('/home', homeRouter);
 app.use('/blog', blogRouter);
 app.use('/myProgram', myProgramRouter);
 
@@ -141,6 +143,12 @@ function initUserConnection(socket){
 		.on('register user',function(data){
 			admin.register_user(data,response =>{
 				socket.emit('user registered',response);
+			});
+		})
+		.on('load drills dropdown',function(data){
+			console.log("made it to drills");
+			admin.load_drills_dropdown(response =>{
+				socket.emit('drills dropdown loaded',response);
 			});
 		})
 	  ;

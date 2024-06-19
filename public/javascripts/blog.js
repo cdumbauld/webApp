@@ -1,37 +1,44 @@
 let blog_posts_data = {};
+let drill_dropdown_data = {};
 
 /**
  * Event handelers that call certain methods when certain assets
  * are clicked or certain events are complete
  */
-function initHandlers(){
+function initHandlers() {
     //socket calls
     socket.emit("load blog posts");
-    socket.on("blog post stored",onBlogPostStored);
-    socket.on("blog posts loaded",onBlogPostsLoaded);
+    socket.emit("load drills dropdown");
+    socket.on("blog post stored", onBlogPostStored);
+    socket.on("blog posts loaded", onBlogPostsLoaded);
+    socket.on("drills dropdown loaded",onDrillsLoaded);
 
     $('.btnPost').click(onPostClicked);
     $('.btnClear').click(onClearClicked);
-    $('.btnContact').click(onContactClicked);
+    $('.btnAdd').click(onAddClicked);
     $('.btnCancel').click(onCancelClicked);
-    $('.btnSend').click(onSendClicked);
-    
+    $('.btnSave').click(onSendClicked);
+
 }
 
-function onBlogPostsLoaded(data){
+function onDrillsLoaded(data){
+    renderDrillsDropdown(data.data);
+}
+
+function onBlogPostsLoaded(data) {
     console.log("blog posts loaded");
     console.log(data);
     blog_posts_data = data.data;
 
     renderBlogPosts()
 }
-function onBlogPostStored(data){
+function onBlogPostStored(data) {
     console.log("blog post stored response");
     console.log(data);
 }
 
 // opens modal
-function onContactClicked(){
+function onAddClicked() {
     let modal = document.getElementById("popup");
 
     modal.classList.add("open-modal");
@@ -39,26 +46,26 @@ function onContactClicked(){
 }
 
 
-function onSendClicked(){
-    var name = document.getElementsByName('contactName')[0].value;
+function onSendClicked() {
+    var name = document.getElementsByName('drillName')[0].value;
     var email = document.getElementsByName('contactEmail')[0].value;
-    var message = document.getElementsByName('emailMessage')[0].value;
+    var message = document.getElementsByName('description')[0].value;
     var nameErrorFlag = false;
     var emailErrorFlag = false;
     var messageErrorFlag = false;
     var nameErrorMsg = "Please enter in your name!";
     var emailErrorMsg = "Please enter in a valid Email!";
-    var messageErrorMsg = "Please type in a message!"; 
+    var messageErrorMsg = "Please type in a message!";
 
     nameErrorFlag = textboxErrorHandler(name);
     messageErrorFlag = textareaErrorHandler(message);
 
-    if(nameErrorFlag == true){
+    if (nameErrorFlag == true) {
         console.log("enter in your name");
 
-    }else if(messageErrorFlag == true){
+    } else if (messageErrorFlag == true) {
         console.log("type your message");
-    }else if(nameErrorFlag == false && messageErrorFlag == false){
+    } else if (nameErrorFlag == false && messageErrorFlag == false) {
         console.log("Sent!")
     }
 
@@ -67,7 +74,7 @@ function onSendClicked(){
 }
 
 // closes modal
-function onCancelClicked(){
+function onCancelClicked() {
     let modal = document.getElementById("popup");
 
     modal.classList.remove("open-modal");
@@ -76,7 +83,7 @@ function onCancelClicked(){
 /**
  * Logic what to do once submit is clicked
  */
-function onPostClicked(){
+function onPostClicked() {
     var name = document.getElementsByName('blogName')[0].value;
     var post = document.getElementsByName('blogPost')[0].value;
     var nameErrorFlag = false;
@@ -89,25 +96,24 @@ function onPostClicked(){
 
 
     // post error message if there is no name
-    if(nameErrorFlag == true)
-    {
+    if (nameErrorFlag == true) {
         document.getElementById("formError").innerText = nameErrorMsg;
         document.getElementById("formError").style.visibility = "visible";
 
-    }else if(postErrorFlag == true){
+    } else if (postErrorFlag == true) {
         document.getElementById("formError").innerText = postErrorMsg;
         document.getElementById("formError").style.visibility = "visible";
 
-    }else if(nameErrorFlag == false && postErrorFlag == false)//posts the post on the blog page
+    } else if (nameErrorFlag == false && postErrorFlag == false)//posts the post on the blog page
     {
         $(".blog-container").prepend(
             `<div class="blogPost">` +
-                `<div class="postName">`+
-                    `<p>${name}</p>`+
-                `</div>`+
-                `<div class="post">`+
-                    `<p>${post}</p>`+
-                `</div>`+
+            `<div class="postName">` +
+            `<p>${name}</p>` +
+            `</div>` +
+            `<div class="post">` +
+            `<p>${post}</p>` +
+            `</div>` +
             `</div>`
         );
         document.getElementsByName('blogName')[0].value = "";
@@ -116,65 +122,55 @@ function onPostClicked(){
 
         // validation succesfull sending post to server to store in file
         let postData = {
-            name:name,
-            post:post
+            name: name,
+            post: post
         };
-        socket.emit("store blog post",postData);
+        socket.emit("store blog post", postData);
     }
-    
+
 }
 
-function textboxErrorHandler(textboxValue){
+function textboxErrorHandler(textboxValue) {
     var errorFlag = false;
     var name = textboxValue;
 
     //checks to see if a name was typed in 
-    if(name == "")
-    {
+    if (name == "") {
         errorFlag = true;
-        
-    }else
-    {
+
+    } else {
         //loops through name to make sure its not just spaces
-        for(let i = 0; i < name.length; i++) 
-        {
-            if(name[i] == " ")
-            {
-                errorFlag = true; 
-            //breaks out when character is found
-            }else                                           
-            {
+        for (let i = 0; i < name.length; i++) {
+            if (name[i] == " ") {
+                errorFlag = true;
+                //breaks out when character is found
+            } else {
                 errorFlag = false;
                 // document.getElementById("formError").style.visibility = "hidden";
-                break;          
+                break;
             }
         }
     }
-    
+
     return errorFlag
 
 }
 
-function textareaErrorHandler(textareaValue){
+function textareaErrorHandler(textareaValue) {
     var errorFlag = false;
     var post = textareaValue;
-    
+
     //checks the post
-    if(post == "")                                      
-    {
+    if (post == "") {
         errorFlag = true;
         errorMsg = "Please enter in a post!";
-    }else
-    {
+    } else {
         //loops through the post making sure its not just spaces
-        for(let i = 0; i < post.length; i++)            
-        {
-            if(post[i] == " ")
-            {
+        for (let i = 0; i < post.length; i++) {
+            if (post[i] == " ") {
                 errorFlag = true;
                 errorMsg = "Please enter in a post!";
-            }else
-            {
+            } else {
                 errorFlag = false;
                 // document.getElementById("formError").style.visibility = "hidden";
                 break;
@@ -188,18 +184,18 @@ function textareaErrorHandler(textareaValue){
 }
 
 
-function onClearClicked(){
+function onClearClicked() {
     //clears textbox and textarea
     document.getElementsByName('blogName')[0].value = "";
     document.getElementsByName('blogPost')[0].value = "";
     document.getElementById("formError").style.visibility = "hidden";
-    
+
 }
 
-function renderBlogPosts(){
+function renderBlogPosts() {
     let html = "";
-    for(let posts in blog_posts_data){
-        let post= blog_posts_data[posts]
+    for (let posts in blog_posts_data) {
+        let post = blog_posts_data[posts]
         console.log(posts);
         console.log("posts");
         let name = post.name;
@@ -211,25 +207,36 @@ function renderBlogPosts(){
         //     console.log(post[postInfo])
         //     console.log("post value");
 
-            html = `<div class="blogPost">` +
-                        `<div class="postName">`+
-                            `<p>${name}</p>`+
-                        `</div>`+
-                        `<div class="post">`+
-                            `<p>${postBody}</p>`+
-                        `</div>`+
-                    `</div>` + html;
+        html = `<div class="blogPost">` +
+            `<div class="postName">` +
+            `<p>${name}</p>` +
+            `</div>` +
+            `<div class="post">` +
+            `<p>${postBody}</p>` +
+            `</div>` +
+            `</div>` + html;
         // }
-        
+
     }
 
     $(".blog-container").prepend(html);
 }
 
+function renderDrillsDropdown(data){
+    var select = document.getElementById("drills");
+    for(let i in data){
+        let drill = data[i];
+        var option = document.createElement("option");
+        option.value = drill.code_key;
+        option.innerHTML = drill.code_desc;
+        select.appendChild(option);
+    }
+}
+
 /**
  * All the page requirements that need to be loaded from the start
  */
-function init(){
+function init() {
     initHandlers();
 }
 
@@ -238,6 +245,6 @@ function init(){
 /**
  * Setup everything on page loaded
  */
-$(document).ready(function(){
-     init();
+$(document).ready(function () {
+    init();
 });

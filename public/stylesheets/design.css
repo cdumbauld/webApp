@@ -75,7 +75,7 @@
 }
 
 button{
-    width:92px;
+    width:fit-content;
     margin-left: 20px;
     padding: 2px 12px;
     background: transparent;
@@ -126,7 +126,7 @@ button:hover{
 
 .popup{
     width:600px;
-    height:400px;
+    height:auto;
     background-color: rgb(32, 31, 31);
     border-radius: 6px;
     position:fixed;
@@ -171,12 +171,34 @@ button:hover{
     color:#fff;
     border: 1.5px solid rgba(255,255,255,0.25);
     padding:5px;
-    margin:10px;
+    margin:5px;
     height:35px;
     width:238px;
     transition: all 0.7s;
 }
 
+.textBoxs select{
+    border-radius:5px;
+    background:transparent;
+    outline: none;
+    color:#fff;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    padding:5px;
+    margin:10px;
+    height:35px;
+    width:238px;
+    transition: all 0.7s;
+} 
+
+select option{
+ background:rgb(32, 31, 31);
+
+}
+
+select:invalid,
+select option[value=""] {
+  color: #999999;
+}
 
 .textBoxs input:hover{
     cursor:pointer;
@@ -197,12 +219,12 @@ button:hover{
 }
 
 /* modal textarea styling */
-.textareaContainer{
+/*.textareaContainer{
     margin-bottom:5px;
-}
+}*/
 
 
-.txtAreaEmail{
+.txtAreaDesc{
     background-color: transparent;
     color:#fff;
     padding:1em;
@@ -222,12 +244,12 @@ button:hover{
     cursor:pointer;
 }
 
-.txtAreaEmail:focus{
+.txtAreaDesc:focus{
     cursor:text;
     border-color:rgb(20, 227, 227);
 }
 
-.txtAreaEmail:focus::placeholder{
+.txtAreaDesc:focus::placeholder{
     color:rgb(20, 227, 227);
     transition:all 0.7s;
 }

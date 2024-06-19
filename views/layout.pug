@@ -39,16 +39,25 @@ html
         <div class = "popup" id="popup">
 
           div.contactHeader
-              <h3> Contact Me!</h3> 
+              <h3> Add New Drill!</h3> 
           div.textBoxs 
-              <input type = "text" id = "contactName" name ="contactName" placeholder = "Name" required = "required"> 
-              <input type = "text" name ="contactEmail" id = "email" placeholder = "Email" required = "required">
+              <input type = "text" id = "drillName" name ="drillName" placeholder = "Drill Name" required = "required"> 
+              //<input type = "text" name ="contactEmail" id = "email" placeholder = "Email" required = "required">
+              <select name = "drills" id = "drills" required>
+                <option value ="" selected disabled hidden>Please Choose...</option>
+                //<option value ="Passing">Passing</option>
+                //<option value ="Shooting">Shooting</option>
+                //<option value ="Defending">Defending</option>
+                //<option value ="Goalkeeper">GoalKeeper</option>
+              </select>
 
           div.textareaContainer 
-              <textarea class = "txtAreaEmail" name = "emailMessage" placeholder = "Enter message here..."></textarea>
-          
+              <textarea class = "txtAreaDesc" name = "description" placeholder = "Enter description here..."></textarea>
+          div.textBoxs
+            <input type = "text" class = "txtUrl" id = "urlDrill" name = "txtUrlDrill" placeholder = "Url" required = "required" style = "width:500px;"> 
           div.blogButtons
-              <button class="btnSend"><span class = "buttonSpan"></span> Send </button>
+              <button class="btnSave"><span class = "buttonSpan"></span> Save </button>
+              <button class="btnAddPic"><span class ="buttonSpan"></span> Add Picture</button>
               <button class="btnCancel"><span class = "buttonSpan"></span> Cancel </button>
         </div>
 

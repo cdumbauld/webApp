@@ -9,6 +9,16 @@ const
     fs = require('fs')
 ;
 
+const {createPool} = require('mysql2');
+const conn = createPool({
+    host:"localhost",
+    user:"root",
+    password:"Chance17121157!",
+    database:"soccerdrills",
+    port:3306,
+});
+  
+
 module.exports = class Admin extends Utils{
 
     getToken(callback){
@@ -185,6 +195,20 @@ module.exports = class Admin extends Utils{
            return callback(self.simpleSuccess("Successfully got blog posts",blog_posts_data)); 
            
         });
+
+    };
+
+    load_drills_dropdown(callback){
+        let self=this;
+        console.log("made it to load_drills_dropdown")
+        if (typeof callback!='function') callback = function(){};
+         conn.query('select * from code',(err,result,fields)=>{
+            if(err){
+                return callback(self.simpleFail('Error loading drills ',err));
+            }
+            //console.log(result);
+            return callback(self.simpleSuccess("Successfully got drills ",result));
+        });   
 
     };
 }
